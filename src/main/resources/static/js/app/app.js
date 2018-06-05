@@ -23,20 +23,10 @@ app.config(['$stateProvider', '$urlRouterProvider',
                     }
                 }
             })
-            .stage('budget',{
-                url:'/budget',
-                templateUrl:'partials/budget',
-                controller:'BudgetController',
-                controllerAs:'BudgetCtrl',
-                resolve:{
-                    budget: function ($q, BudgetService) {
-                        console.log('load all budget');
-                        var deferred=$q.defer();
-                        BudgetService.loadAllBudget().then(deferred.resolve,deferred.resolve);
-                        return deferred.promise;
-                    }
-                }
 
+
+            .state('budgets',{
+                url: '/budgets'
             });
         $urlRouterProvider.otherwise('/index');
     }]);

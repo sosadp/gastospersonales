@@ -23,7 +23,7 @@ public class ConceptsServiceImpl implements ConceptsService{
     @Override
     public Concepts findById(Long id) {
 
-        LOGGER.info("----------->{}",id,conceptsRepository.getOne(id).getName());
+
         return conceptsRepository.getOne(id);
     }
 

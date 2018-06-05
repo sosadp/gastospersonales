@@ -11,7 +11,7 @@
             <ul class="nav nav-pills">
                 <li><a href="#/"> Inicio </a></li>
                 <li><a href="#/concepts">Lista de Conceptos</a></li>
-                <li><a href="#/baget">Presupuestos</a></li>
+                <li><a href="#/budgets">Presupuestos</a></li>
                 <li><a href="#/transaction">Transacciones</a></li>
             </ul>
     </div>

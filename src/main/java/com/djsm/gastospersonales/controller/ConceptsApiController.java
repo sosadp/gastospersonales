@@ -40,7 +40,7 @@ public class ConceptsApiController {
 
     @RequestMapping(value = "/concepts/{id}",method = RequestMethod.GET)
     public ResponseEntity<?> getConcepts(@PathVariable("id") Long id){
-        LOGGER.info(" z----{}",id);
+
         LOGGER.info("Fetching concepts with id {}",id);
         Concepts concepts= conceptsService.findById(id);
 
@@ -56,8 +56,6 @@ public class ConceptsApiController {
     @RequestMapping(value = "/concepts/", method = RequestMethod.POST)
     public ResponseEntity<?> createConcepts(@RequestBody Concepts concepts, UriComponentsBuilder ucBuilder){
 
-
-        LOGGER.info("--------------> esta llegando",concepts.getName());
         LOGGER.info("Unable to create. A User with name {} already exist",concepts);
 
         if(conceptsService.isConceptsExist(concepts)){
