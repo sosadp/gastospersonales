@@ -2,13 +2,19 @@ var app = angular.module('crudApp',['ui.router','ngStorage']);
 
 app.constant('urls', {
     BASE: 'http://localhost:8080/gastos',
-    CONCEPTS_SERVICE_API : 'http://localhost:8080/gastos/api/concepts/'
+    CONCEPTS_SERVICE_API : 'http://localhost:8080/gastos/api/concepts/',
+    BUDGETS_SERVICES_API : 'http://localhost:8080/gastos/api/budgets/'
 });
 
 app.config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
+    
+
 
         $stateProvider
+            .state('home',{
+                url:'/'
+            })
             .state('concepts', {
                 url: '/concepts',
                 templateUrl: 'partials/concepts',
@@ -23,8 +29,6 @@ app.config(['$stateProvider', '$urlRouterProvider',
                     }
                 }
             })
-
-
             .state('budgets',{
                 url: '/budgets'
             });

@@ -26,8 +26,9 @@ public class BudgetApiController {
     @Autowired
     BudgetService budgetService;
 
-    @RequestMapping(value = "/budget/",method = RequestMethod.GET)
+    @RequestMapping(value = "/budget",method = RequestMethod.GET)
     public ResponseEntity<List<Budget>> listAllBudget(){
+        LOGGER.info("Estoy AQUIIIIII......");
         List<Budget> budgets = budgetService.findAllBudget();
 
         if (budgets.isEmpty()){
