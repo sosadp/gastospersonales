@@ -7,7 +7,7 @@
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>NAME</th>
+                    <th>NAME </th>
                     <th>FECHA</th>
                     <th width="100"></th>
                     <th width="100"></th>

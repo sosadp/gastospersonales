@@ -37,7 +37,7 @@
                     <tr>
                         <th>ID</th>
                         <th>NAME</th>
-                        <th>AGE</th>
+                        <th>AGE </th>
                         <th>SALARY</th>
                         <th width="100"></th>
                         <th width="100"></th>
