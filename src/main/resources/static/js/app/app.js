@@ -1,9 +1,9 @@
-var app = angular.module('crudApp',['ui.router','ngStorage']);
+var app = angular.module('gastosPerApp',['ui.router','ngStorage']);
 
 app.constant('urls', {
     BASE: 'http://localhost:8080/gastos',
     CONCEPTS_SERVICE_API : 'http://localhost:8080/gastos/api/concepts/',
-    BUDGETS_SERVICES_API : 'http://localhost:8080/gastos/api/budgets/'
+    BUDGETS_SERVICES_API : 'http://localhost:8080/gastos/api/budget/'
 });
 
 app.config(['$stateProvider', '$urlRouterProvider',
@@ -15,6 +15,7 @@ app.config(['$stateProvider', '$urlRouterProvider',
             .state('home',{
                 url:'/'
             })
+
             .state('concepts', {
                 url: '/concepts',
                 templateUrl: 'partials/concepts',
@@ -29,9 +30,23 @@ app.config(['$stateProvider', '$urlRouterProvider',
                     }
                 }
             })
+
+
             .state('budgets',{
-                url: '/budgets'
-            });
-        $urlRouterProvider.otherwise('/index');
+                url: '/budgets' ,
+                templateUrl: 'partials/budgets' ,
+                controller: 'BudgetsController',
+                controllerAs: 'Budgetctrl' ,
+                resolve:{
+                    budgets: function ($q, BudgetsService) {
+                        console.log('load all budgets');
+                        var deferred=$q.defer();
+                        BudgetsService.loadAllBudget().then(deferred.resolve,deferred.resolve);
+                        return deferred.promise;
+                    }
+                }
+            })
+
+        $urlRouterProvider.otherwise('/');
     }]);
 

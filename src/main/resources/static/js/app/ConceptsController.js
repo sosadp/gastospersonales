@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('crudApp').controller('ConceptsController',
+angular.module('gastosPerApp').controller('ConceptsController',
     ['ConceptsService', '$scope',  function(ConceptsService, $scope) {
 
         var self = this;
@@ -38,7 +38,7 @@ angular.module('crudApp').controller('ConceptsController',
             ConceptsService.createConcepts(concept)
                 .then(
                     function (response) {
-                        console.log('Conceptas created successfully');
+                        console.log('Concepts created successfully');
                         self.successMessage = 'concepts created successfully';
                         self.errorMessage='';
                         self.done = true;

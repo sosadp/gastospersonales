@@ -1,10 +1,11 @@
 'use strict';
 
-angular.module('crudApp').factory('ConceptsService',
+angular.module('gastosPerApp').factory('ConceptsService',
     ['$localStorage', '$http', '$q', 'urls',
         function ($localStorage, $http, $q, urls) {
 
             var factory = {
+
                 loadAllConcepts: loadAllConcepts,
                 getAllConcepts: getAllConcepts,
                 getConcepts: getConcepts,
@@ -19,8 +20,7 @@ angular.module('crudApp').factory('ConceptsService',
                 console.log('Fetching all concepts');
                 var deferred = $q.defer();
                 $http.get(urls.CONCEPTS_SERVICE_API)
-                    .then(
-                        function (response) {
+                    .then(function (response) {
                             console.log('Fetched successfully all concepts');
                             $localStorage.concepts = response.data;
                             deferred.resolve(response);

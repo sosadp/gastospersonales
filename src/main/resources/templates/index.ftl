@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="crudApp">
+<html lang="en" ng-app="gastosPerApp">
     <head>
        <title>${tittle}</title>
         <link href="css/bootstrap.css" rel="stylesheet"/>
@@ -15,6 +15,7 @@
                 <li><a href="#/transaction">Transacciones</a></li>
             </ul>
     </div>
+
     <div ui-view></div>
     <script src="js/lib/angular.min.js" ></script>
     <script src="js/lib/angular-ui-router.min.js" ></script>
@@ -23,6 +24,9 @@
     <script src="js/app/app.js"></script>
     <script src="js/app/ConceptsService.js"></script>
     <script src="js/app/ConceptsController.js"></script>
+    <script src="js/app/BudgetsService.js"></script>
+    <script src="js/app/BudgetsController.js"></script>
+
     </body>
 
 </html>

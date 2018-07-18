@@ -77,6 +77,50 @@ public class BudgetApiController {
     }
 
 
+    @RequestMapping(value = "/budget/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<?> updateBudget(@PathVariable("id") long id, @RequestBody Budget budget){
+        LOGGER.info("Se actualizara el budget {}",id);
+
+        Budget currentBudget=budgetService.findById(id);
+
+        if (currentBudget==null){
+
+            LOGGER.error("No se encontro el budget {}", id);
+
+            return  new ResponseEntity(new CustomErrorType("No se puede actualizar Budget "+id),HttpStatus.NOT_FOUND);
+        }
+
+        currentBudget.setName(budget.getName());
+
+        currentBudget.setBudgetDate(budget.getBudgetDate());
+
+        budgetService.updateBudget(currentBudget);
+
+        return new ResponseEntity<Budget>(currentBudget,HttpStatus.OK);
+
+    }
+
+    @RequestMapping(value = "/budget/{id}",method = RequestMethod.DELETE)
+    public ResponseEntity<?> deleteBudget(@PathVariable("id") long id){
+        LOGGER.info("Se buscará y elmininará el Budget {}",id);
+        Budget budget= budgetService.findById(id);
+
+        if (budget==null){
+
+            LOGGER.error("El budget {}",id,"  no se encuentra ");
+            return new ResponseEntity(new CustomErrorType("No se puede encontrar "+id),HttpStatus.NOT_FOUND);
+
+        }
+
+        budgetService.deleteById(id);
+
+        return new ResponseEntity<Budget>(HttpStatus.NO_CONTENT);
+
+
+
+    }
+
+
 
 
 
