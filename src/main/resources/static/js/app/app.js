@@ -13,7 +13,8 @@ app.config(['$stateProvider', '$urlRouterProvider',
 
         $stateProvider
             .state('home',{
-                url:'/'
+                url:'/home',
+                templateUrl:'partials/home'
             })
 
             .state('concepts', {
@@ -47,6 +48,12 @@ app.config(['$stateProvider', '$urlRouterProvider',
                 }
             })
 
-        $urlRouterProvider.otherwise('/');
+            .state('transaction',{
+                url: '/transaction',
+                templateUrl:'partials/transaction'
+            })
+
+
+        $urlRouterProvider.otherwise('/home');
     }]);
 

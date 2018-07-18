@@ -1,3 +1,5 @@
+<div class="generic-container">
+
 <div class="panel panel-default">
     <!-- Default panel contents -->
     <div class="panel-heading"><span class="lead">List of Budget </span></div>
@@ -17,7 +19,10 @@
                 <tr ng-repeat="u in Budgetctrl.getAllBudgets()">
                     <td>{{u.id}}</td>
                     <td>{{u.name}}</td>
-                    <td>{{u.budget_date}}</td>
+                    <td>{{u.budgetDate}}</td>
+
+
+
 
                     <td><button type="button" ng-click="ctrl.editBudget(u.id)" class="btn btn-success custom-width">Edit</button></td>
                     <td><button type="button" ng-click="ctrl.removeBudget(u.id)" class="btn btn-danger custom-width">Remove</button></td>
@@ -26,4 +31,6 @@
             </table>
         </div>
     </div>
+</div>
+
 </div>

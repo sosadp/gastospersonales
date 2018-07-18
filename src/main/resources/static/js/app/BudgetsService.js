@@ -35,7 +35,7 @@ angular.module('gastosPerApp').factory('BudgetsService',
             }
 
             function getAllBudget() {
-                return $localStorage.concepts;
+                return $localStorage.budgets;
             }
 
             function getBudget(id) {
