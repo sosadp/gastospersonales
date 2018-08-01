@@ -3,6 +3,7 @@ package com.djsm.gastospersonales.controller;
 import com.djsm.gastospersonales.model.Concepts;
 import com.djsm.gastospersonales.service.ConceptsService;
 import com.djsm.gastospersonales.util.CustomErrorType;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -9,5 +9,6 @@ import java.util.Date;
 @Repository
 public interface BudgetRepository extends JpaRepository<Budget,Long>{
 
+        
         Budget findByBudgetDate(Date date);
 }

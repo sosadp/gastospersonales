@@ -1,6 +1,7 @@
 package com.djsm.gastospersonales.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.MetaValue;
 import org.springframework.boot.autoconfigure.web.ResourceProperties;
 
@@ -10,6 +11,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "BUDGET")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Budget implements Serializable{
 
     @Id
