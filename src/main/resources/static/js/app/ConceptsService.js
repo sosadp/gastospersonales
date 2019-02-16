@@ -22,7 +22,7 @@ angular.module('gastosPerApp').factory('ConceptsService',
                 $http.get(urls.CONCEPTS_SERVICE_API)
                     .then(function (response) {
                             console.log('Fetched successfully all concepts');
-                            $localStorage.concepts = response.data;
+                            $localStorage.concepts = response.data.content;
                             deferred.resolve(response);
                         },
                         function (errResponse) {
@@ -56,14 +56,14 @@ angular.module('gastosPerApp').factory('ConceptsService',
 
             function createConcepts(concept) {
 
-                console.log('Creating concepts');
+                console.log('Creating concepts----------> '+concept.name);
 
                 var deferred = $q.defer();
                 $http.post(urls.CONCEPTS_SERVICE_API, concept)
                     .then(
                         function (response) {
                             loadAllConcepts();
-                            deferred.resolve(response.data);
+                            deferred.resolve(response.name);
                         },
                         function (errResponse) {
                            console.error('Error while creating concepts : '+errResponse.data.errorMessage);

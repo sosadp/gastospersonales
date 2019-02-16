@@ -1,6 +1,7 @@
 package com.djsm.gastospersonales.service;
 
 import com.djsm.gastospersonales.model.Budget;
+import org.springframework.data.domain.Page;
 
 import java.util.Date;
 import java.util.List;

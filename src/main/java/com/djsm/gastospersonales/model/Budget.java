@@ -7,6 +7,8 @@ import org.springframework.boot.autoconfigure.web.ResourceProperties;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 
 @Entity
@@ -16,7 +18,7 @@ public class Budget implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(name = "NAME")
     private String name;
@@ -24,6 +26,7 @@ public class Budget implements Serializable{
 
     @Column(name = "BUDGET_DATE")
     private Date budgetDate;
+
 
 
     public long getId() {

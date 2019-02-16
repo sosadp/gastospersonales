@@ -3,10 +3,12 @@ package com.djsm.gastospersonales.controller;
 import com.djsm.gastospersonales.model.Concepts;
 import com.djsm.gastospersonales.service.ConceptsService;
 import com.djsm.gastospersonales.util.CustomErrorType;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,7 +28,7 @@ public class ConceptsApiController {
     ConceptsService conceptsService;
 
 
-    @RequestMapping(value = "/concepts", method = RequestMethod.GET)
+    /*@RequestMapping(value = "/concepts", method = RequestMethod.GET)
     public ResponseEntity<List<Concepts>> listAllConcepts(){
 
         List<Concepts> concepts = conceptsService.findAllConcepts();
@@ -37,7 +39,22 @@ public class ConceptsApiController {
         }
 
         return new ResponseEntity <List<Concepts>>(concepts,HttpStatus.OK);
+    } */
+    @GetMapping("/concepts")
+    public Page<Concepts> listAllConcepts(Pageable pageable){
+
+        //*List<Concepts> concepts= conceptsService.findAllConcepts(pageable);
+
+        /*if (concepts.isEmpty()){
+            return new PageImpl<>(concepts,pageable,concepts.size());
+        }*/
+
+        return conceptsService.findAllConcepts(pageable);
+
     }
+
+
+
 
     @RequestMapping(value = "/concepts/{id}",method = RequestMethod.GET)
     public ResponseEntity<?> getConcepts(@PathVariable("id") Long id){

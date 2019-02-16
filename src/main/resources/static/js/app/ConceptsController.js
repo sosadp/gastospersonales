@@ -14,13 +14,30 @@ angular.module('gastosPerApp').controller('ConceptsController',
         self.removeConcepts = removeConcepts;
         self.editConcepts = editConcepts;
         self.reset = reset;
+        self.numberOfPages = numberOfPages;
 
         self.successMessage = '';
         self.errorMessage = '';
         self.done = false;
+        self.pageCur=1;
+        self.itemPerPage=2;
+        self.maxPage=1;
 
         self.onlyIntegers = /^\d+$/;
         self.onlyNumbers = /^\d+([,.]\d+)?$/;
+
+
+
+        function numberOfPages (arrayLenght) {
+
+            return Math.ceil(arrayLenght/self.itemPerPage);
+        }
+
+        $scope.$watch('pageCur + itemPerPage',function () {
+            var begin =((self.pageCur-1)*self.itemPerPage),end=begin+self.itemPerPage;
+
+            self.filteredItems=self.concepts.slice(begin,end);
+        })
 
         function submit() {
             console.log('Submitting');
@@ -89,7 +106,10 @@ angular.module('gastosPerApp').controller('ConceptsController',
 
 
         function getAllConcepts(){
+            self.concepts=ConceptsService.getAllConcepts();
+            console.log(self.concepts);
             return ConceptsService.getAllConcepts();
+
         }
 
         function editConcepts(id) {

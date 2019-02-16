@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
 
 @Entity
 @Table(name = "CONCEPTS")
@@ -19,6 +21,7 @@ public class Concepts implements Serializable {
     @NotEmpty
     @Column(name = "NAME",nullable = false)
     private String name;
+
 
     public Long getId() {
         return id;
@@ -35,4 +38,7 @@ public class Concepts implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
+
+    @OneToMany(mappedBy = "concepts")
+    private Collection<Transactions> transBudgets = new ArrayList<Transactions>();
 }

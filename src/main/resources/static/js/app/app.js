@@ -8,8 +8,6 @@ app.constant('urls', {
 
 app.config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
-    
-
 
         $stateProvider
             .state('home',{

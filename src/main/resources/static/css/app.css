@@ -4,7 +4,9 @@ body, #mainWrapper {
 }
 
 body, .form-control{
-	font-size:12px!important;
+
+    font-size: 17px !important;
+    font-family: "Century Schoolbook L";
 }
 
 .floatRight{
@@ -32,3 +34,18 @@ body, .form-control{
     width: 80px !important;
 }
 
+#encabezado{
+
+    padding-top: 2%;
+    background: #57ad59;
+    margin-top: 1%;
+    border-radius: 2rem;
+
+}
+
+#encabezado nav{
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+
+    font-family: "Century Schoolbook L";
+}

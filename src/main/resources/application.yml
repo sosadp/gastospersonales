@@ -29,7 +29,7 @@ datasource:
     sampleapp:
       url: jdbc:mysql://localhost:3306/gastos
       username: root
-      password: Arcang31
+      password: 106Galatea
       driverClassName: com.mysql.jdbc.Driver
       defaultSchema:
       maxPoolSize: 20
