@@ -6,8 +6,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-@Repository
-public interface TransactionsRepository extends JpaRepository<Transactions,Long>{
+import java.util.UUID;
 
+@Repository
+public interface TransactionsRepository extends JpaRepository<Transactions, UUID>{
         Page<Transactions> findByConcepts_Id(Long Id, Pageable pageable);
 }
